@@ -14,6 +14,7 @@
 		6368FCBA2BB014650087100B /* AISurveyAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6368FCB92BB014650087100B /* AISurveyAppTests.swift */; };
 		6368FCC42BB014650087100B /* AISurveyAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6368FCC32BB014650087100B /* AISurveyAppUITests.swift */; };
 		6368FCC62BB014650087100B /* AISurveyAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6368FCC52BB014650087100B /* AISurveyAppUITestsLaunchTests.swift */; };
+		6368FCD32BB014A10087100B /* SurveyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6368FCD22BB014A10087100B /* SurveyResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		6368FCBF2BB014650087100B /* AISurveyAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AISurveyAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6368FCC32BB014650087100B /* AISurveyAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AISurveyAppUITests.swift; sourceTree = "<group>"; };
 		6368FCC52BB014650087100B /* AISurveyAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AISurveyAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		6368FCD22BB014A10087100B /* SurveyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				6368FCAA2BB014640087100B /* ContentView.swift */,
 				6368FCAC2BB014650087100B /* Assets.xcassets */,
 				6368FCAE2BB014650087100B /* Preview Content */,
+				6368FCD22BB014A10087100B /* SurveyResponse.swift */,
 			);
 			path = AISurveyApp;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 			files = (
 				6368FCAB2BB014640087100B /* ContentView.swift in Sources */,
 				6368FCA92BB014640087100B /* AISurveyAppApp.swift in Sources */,
+				6368FCD32BB014A10087100B /* SurveyResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

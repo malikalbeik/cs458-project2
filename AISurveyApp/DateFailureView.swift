@@ -9,7 +9,14 @@ import SwiftUI
 
 struct DateFailureView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("Submission failed!")
+                .font(.headline)
+                .padding().accessibilityIdentifier("DateFailureMessage")
+
+            Text("Your date format is either in the future or invalid.")
+                .padding()
+        }
     }
 }
 

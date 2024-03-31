@@ -15,6 +15,8 @@
 		6368FCC42BB014650087100B /* AISurveyAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6368FCC32BB014650087100B /* AISurveyAppUITests.swift */; };
 		6368FCC62BB014650087100B /* AISurveyAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6368FCC52BB014650087100B /* AISurveyAppUITestsLaunchTests.swift */; };
 		6368FCD32BB014A10087100B /* SurveyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6368FCD22BB014A10087100B /* SurveyResponse.swift */; };
+		638232DB2BB9D851004DD3A3 /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638232DA2BB9D851004DD3A3 /* SuccessView.swift */; };
+		638232DD2BB9EC6A004DD3A3 /* DateFailureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638232DC2BB9EC6A004DD3A3 /* DateFailureView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,8 @@
 		6368FCC32BB014650087100B /* AISurveyAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AISurveyAppUITests.swift; sourceTree = "<group>"; };
 		6368FCC52BB014650087100B /* AISurveyAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AISurveyAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		6368FCD22BB014A10087100B /* SurveyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyResponse.swift; sourceTree = "<group>"; };
+		638232DA2BB9D851004DD3A3 /* SuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessView.swift; sourceTree = "<group>"; };
+		638232DC2BB9EC6A004DD3A3 /* DateFailureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFailureView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,8 @@
 			children = (
 				6368FCA82BB014640087100B /* AISurveyAppApp.swift */,
 				6368FCAA2BB014640087100B /* ContentView.swift */,
+				638232DA2BB9D851004DD3A3 /* SuccessView.swift */,
+				638232DC2BB9EC6A004DD3A3 /* DateFailureView.swift */,
 				6368FCAC2BB014650087100B /* Assets.xcassets */,
 				6368FCAE2BB014650087100B /* Preview Content */,
 				6368FCD22BB014A10087100B /* SurveyResponse.swift */,
@@ -260,8 +266,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				638232DB2BB9D851004DD3A3 /* SuccessView.swift in Sources */,
 				6368FCAB2BB014640087100B /* ContentView.swift in Sources */,
 				6368FCA92BB014640087100B /* AISurveyAppApp.swift in Sources */,
+				638232DD2BB9EC6A004DD3A3 /* DateFailureView.swift in Sources */,
 				6368FCD32BB014A10087100B /* SurveyResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -423,9 +431,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AISurveyApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 7CVMJ7ENF7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -440,6 +450,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = cs458.AISurveyApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -451,9 +462,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AISurveyApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 7CVMJ7ENF7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -468,6 +481,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = cs458.AISurveyApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -10,7 +10,7 @@ import Foundation
 struct SurveyResponse: Identifiable {
     let id = UUID()
     var nameSurname: String = ""
-    var birthDate: Date = Date()
+    var birthDate: String = ""
     var educationLevel: String = ""
     var city: String = ""
     var gender: String = ""

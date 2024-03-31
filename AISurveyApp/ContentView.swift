@@ -1,20 +1,22 @@
 import SwiftUI
 
+// ContentView including the form and navigation to SuccessView
 struct ContentView: View {
     @State private var response = SurveyResponse()
-    @State private var showingAlert = false
+    @State private var showingSuccessPage = false // Controls navigation to SuccessView
+    @State private var showingDateFailedPage = false // Controls navigation to SuccessView
+
     let aiModels = ["ChatGPT", "Bard", "Claude", "Copilot"]
 
-    // Computed property to check if all fields are filled appropriately
+    // Checks if all fields are filled appropriately
     private var isFormFilled: Bool {
         !response.nameSurname.isEmpty &&
+        !response.birthDate.isEmpty &&
         !response.educationLevel.isEmpty &&
         !response.city.isEmpty &&
         !response.gender.isEmpty &&
         !response.triedAIModels.isEmpty &&
-        response.triedAIModels.allSatisfy { model in
-            !(response.modelsDefects[model]?.isEmpty ?? true)
-        } &&
+        response.triedAIModels.allSatisfy { model in !(response.modelsDefects[model]?.isEmpty ?? true) } &&
         !response.beneficialUseCase.isEmpty
     }
 
@@ -23,10 +25,15 @@ struct ContentView: View {
             Form {
                 Section(header: Text("Personal Information")) {
                     TextField("Name-Surname", text: $response.nameSurname)
-                    DatePicker("Birth Date", selection: $response.birthDate, displayedComponents: .date)
+                        .accessibilityIdentifier("NameSurname")
+                    TextField("Birth Date", text: $response.birthDate)
+                        .accessibilityIdentifier("BirthDate")
                     TextField("Education Level", text: $response.educationLevel)
+                        .accessibilityIdentifier("EducationLevel")
                     TextField("City", text: $response.city)
+                        .accessibilityIdentifier("City")
                     TextField("Gender", text: $response.gender)
+                        .accessibilityIdentifier("Gender")
                 }
                 
                 Section(header: Text("AI Experience")) {
@@ -38,33 +45,50 @@ struct ContentView: View {
                                 self.response.triedAIModels.append(model)
                             }
                         }
+                        .accessibilityIdentifier("\(model)Checkbox")
                     }
                     if !response.triedAIModels.isEmpty {
                         ForEach(response.triedAIModels, id: \.self) { model in
-                            TextField("\(model) Defects", text: Binding(
-                                get: { self.response.modelsDefects[model, default: ""] },
-                                set: { self.response.modelsDefects[model] = $0 }
-                            ))
+                            TextField("\(model) Defects", text: Binding(get: { self.response.modelsDefects[model, default: ""] }, set: { self.response.modelsDefects[model] = $0 }))
+                                .accessibilityIdentifier("DefectsField_\(model)")
                         }
                     }
                     TextField("Beneficial AI Use Case", text: $response.beneficialUseCase)
+                        .accessibilityIdentifier("BeneficialUseCaseField")
                 }
                 
                 if isFormFilled {
                     Button("Send") {
-                        // Handle the send action here
-                        showingAlert = true
+                        if  !isValidBirthDate(dateString: response.birthDate) {
+                            showingDateFailedPage = true
+                        }
+                        else {
+                            showingSuccessPage = true
+                        }
                     }
+                    .accessibilityIdentifier("SendButton")
                 }
             }
             .navigationBarTitle("AI Survey")
-            .alert(isPresented: $showingAlert) {
-                Alert(title: Text("Survey Submitted"), message: Text("Thank you for your participation!"), dismissButton: .default(Text("OK")))
-            }
+            // NavigationLink to SuccessView, activated programmatically
+            .background(NavigationLink(destination: SuccessView(), isActive: $showingSuccessPage) { EmptyView() })
+            .background(NavigationLink(destination: DateFailureView(), isActive: $showingDateFailedPage) { EmptyView() })
         }
+    }
+    // Validate the birth date format and check if it's not in the future
+    func isValidBirthDate(dateString: String) -> Bool {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        
+        guard let date = dateFormatter.date(from: dateString) else {
+            return false
+        }
+        
+        return date <= Date()
     }
 }
 
+// A helper view for selecting AI models
 struct MultipleSelectionRow: View {
     var title: String
     var isSelected: Bool
@@ -80,6 +104,7 @@ struct MultipleSelectionRow: View {
                 }
             }
         }
+        .accessibilityIdentifier("\(title)SelectionRow")
     }
 }
 
